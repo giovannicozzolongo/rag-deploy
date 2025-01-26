@@ -18,3 +18,4 @@ figures/*.png
 *.bin
 .vscode/
 .idea/
+data/index/
