@@ -6,13 +6,14 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
-    # pull mistral on first start
-    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull mistral && wait"]
+    # pull mistral on first start, then keep serving
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 10 && ollama pull mistral && tail -f /dev/null"]
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/"]
+      test: ["CMD-SHELL", "curl -sf http://localhost:11434/ || exit 1"]
       interval: 10s
-      timeout: 5s
-      retries: 5
+      timeout: 10s
+      retries: 10
+      start_period: 30s
 
   api:
     build:
