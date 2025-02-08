@@ -20,7 +20,7 @@ def load_questions() -> list[dict]:
 
 
 def eval_retrieval(top_k: int = 5) -> dict:
-    """Evaluate retrieval recall@k — does the right source show up?"""
+    """Evaluate retrieval recall@k. Does the right source show up?"""
     from src.retrieval.retriever import retrieve
 
     questions = load_questions()

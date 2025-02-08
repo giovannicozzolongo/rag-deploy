@@ -21,7 +21,7 @@ async def query(req: QueryRequest):
     try:
         chunks = retrieve(req.question, top_k=req.top_k)
     except FileNotFoundError:
-        raise HTTPException(503, "index not built — run make ingest first")
+        raise HTTPException(503, "index not built, run make ingest first")
 
     if not chunks:
         raise HTTPException(404, "no relevant documents found")

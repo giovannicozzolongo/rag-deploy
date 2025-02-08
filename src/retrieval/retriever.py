@@ -37,6 +37,7 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
 
     q_emb = embed_query(query)
     distances, indices = _index.search(q_emb, top_k)
+    # TODO: deduplicate chunks from same page
     return _build_results(distances[0], indices[0])
 
 

@@ -35,7 +35,7 @@ def generate(prompt: str, temperature: float = 0.1) -> dict:
 
 
 def check_ollama() -> bool:
-    """Quick health check — is ollama running and model loaded?"""
+    """Quick health check, is ollama running and model loaded?"""
     try:
         models = _client.list()
         available = [m.model for m in models.models]
