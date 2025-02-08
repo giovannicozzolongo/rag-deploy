@@ -1,6 +1,6 @@
 """RAG prompt templates."""
 
-RAG_TEMPLATE = """Use the following context to answer the question. If the context doesn't contain enough information, say so — don't make things up.
+RAG_TEMPLATE = """Use the following context to answer the question. If the context doesn't contain enough information, say so. Don't make things up.
 
 Context:
 {context}

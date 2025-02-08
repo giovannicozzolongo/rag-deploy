@@ -46,7 +46,7 @@ def test_save_and_load_roundtrip(dummy_embeddings, dummy_chunks):
 
 def test_search_returns_correct_neighbors(dummy_embeddings):
     index = build_index(dummy_embeddings)
-    # search with the first vector itself — should return itself as nearest
+    # search with the first vector itself, should return itself as nearest
     query = dummy_embeddings[0:1]
     distances, indices = index.search(query, 3)
     assert indices[0][0] == 0

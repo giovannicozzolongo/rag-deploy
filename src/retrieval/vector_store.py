@@ -1,4 +1,4 @@
-"""FAISS vector store — build, save, load."""
+"""FAISS vector store: build, save, load."""
 
 import json
 import logging

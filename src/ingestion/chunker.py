@@ -37,7 +37,7 @@ def chunk_recursive(
     chunk_size: int = 500,
     overlap: int = 50,
 ) -> list[dict]:
-    """Recursive text splitting — tries to split on paragraphs,
+    """Recursive text splitting, tries to split on paragraphs,
     then sentences, then characters."""
     separators = ["\n\n", "\n", ". ", " "]
     chunks = []
@@ -124,7 +124,7 @@ def chunk_semantic(
     pages: list[dict],
     max_chunk_size: int = 800,
 ) -> list[dict]:
-    """Semantic chunking — split on paragraph boundaries,
+    """Semantic chunking. Split on paragraph boundaries,
     keep logical sections together."""
     chunks = []
 
