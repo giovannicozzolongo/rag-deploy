@@ -19,3 +19,4 @@ figures/*.png
 .vscode/
 .idea/
 data/index/
+.pytest_cache/
