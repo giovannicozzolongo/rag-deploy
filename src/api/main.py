@@ -1,9 +1,12 @@
 """FastAPI application entry point."""
 
 import logging
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from src.api.routes import router
 
@@ -26,6 +29,15 @@ app.add_middleware(
 )
 
 app.include_router(router)
+
+_frontend = Path("frontend")
+if _frontend.is_dir():
+
+    @app.get("/")
+    async def serve_frontend():
+        return FileResponse(_frontend / "index.html")
+
+    app.mount("/static", StaticFiles(directory=_frontend), name="static")
 
 
 if __name__ == "__main__":
