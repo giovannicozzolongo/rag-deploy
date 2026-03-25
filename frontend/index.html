@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc Search</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-left">
+                <a href="/" class="logo-link">
+                    <h1 class="logo"><span class="logo-prompt">$</span> doc search</h1>
+                </a>
+                <p class="subtitle">Python stdlib &amp; scikit-learn documentation</p>
+            </div>
+            <div class="health" id="health">
+                <span class="health-dot" id="health-dot"></span>
+                <span class="health-text" id="health-text">checking...</span>
+            </div>
+        </header>
+
+        <main class="chat-area" id="chat-area">
+            <div class="empty-state" id="empty-state">
+                <div class="empty-prompt">$_</div>
+                <p class="empty-title">Ask anything about the docs</p>
+                <div class="empty-examples">
+                    <button class="empty-example" onclick="useExample(this)">How does GridSearchCV handle cross-validation?</button>
+                    <button class="empty-example" onclick="useExample(this)">Explain Python's asyncio event loop</button>
+                    <button class="empty-example" onclick="useExample(this)">What's the difference between fit and fit_transform?</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="input-area">
+            <div class="input-wrap">
+                <input type="text" id="query-input" placeholder="Search the docs..." autocomplete="off">
+                <button id="send-btn" onclick="sendQuery()" aria-label="Send">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <span class="input-hint">Enter &crarr;</span>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

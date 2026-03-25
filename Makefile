@@ -4,8 +4,7 @@ ingest:
 	python -m src.ingestion.run
 
 serve:
-	uvicorn src.api.main:app --host 0.0.0.0 --port 8000 &
-	streamlit run src/ui/app.py --server.port 8501
+	uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
 
 eval:
 	python -m evaluation.evaluate
